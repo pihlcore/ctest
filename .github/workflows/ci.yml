@@ -1,0 +1,40 @@
+# Set pipeline name.
+name: CI
+
+# Set pipeline triggers.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Define pipeline jobs.
+jobs:
+  # Build library and run self-tests, run on Ubuntu 24.04 runner.
+  build-library:
+    name: Build and test library
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build
+        run: bash ci/build.sh
+      - name: Test
+        run: bash ci/test.sh
+
+  # Check code formatting, run on Ubuntu 24.04 runner.
+  format-check:
+    name: Check formatting
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      # Formatting is pinned to clang-format 18, preinstalled on ubuntu-24.04; apt is a fallback.
+      # `apt-get update` is deliberately skipped: the runner image carries third-party repositories
+      # (packages.microsoft.com) that intermittently return 403 and fail the whole update.
+      - name: Provide clang-format 18
+        run: command -v clang-format-18 || sudo apt-get install -y clang-format-18
+      - name: Check formatting
+        run: |
+          clang-format-18 --version
+          bash ci/format.sh --check
