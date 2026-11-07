@@ -1,0 +1,16 @@
+Test case Pass.AllMacros succeeded!
+Test case Pass.EvaluatesOnce succeeded!
+Test case Fail.True failed: EXPECT_TRUE(VALUE > OTHER_VALUE) failed: false != true (tests/failures.c:75)
+Test case Fail.False failed: EXPECT_FALSE(OTHER_VALUE > VALUE) failed: true != false (tests/failures.c:82)
+Test case Fail.EqInt failed: EXPECT_EQ(VALUE, OTHER_VALUE) failed: 1 != 2 (tests/failures.c:89)
+Test case Fail.NeUnsigned failed: EXPECT_NE(UVALUE, UVALUE) failed: 3 == 3 (tests/failures.c:96)
+Test case Fail.NearDouble failed: EXPECT_NEAR(NEAR_A, FAR_B, DOUBLE_TOL) failed: |1 - 1.5| = 0.5 > 0.1 (tests/failures.c:103)
+Test case Fail.NearInt failed: EXPECT_NEAR(INT_FAR_A, INT_FAR_B, INT_TOL) failed: |10 - 3| = 7 > 2 (tests/failures.c:110)
+Test case Fail.Uint8 failed: EXPECT_EQ(value, OTHER_BYTE_VALUE) failed: 65 != 66 (tests/failures.c:120)
+Test case Fail.Bool failed: EXPECT_EQ(value, true) failed: false != 1 (tests/failures.c:131)
+Test case Fail.String failed: EXPECT_EQ(hi, yo) failed: "hi" != "yo" (tests/failures.c:143)
+Test case Fail.Float failed: EXPECT_EQ(value, OTHER_FLOAT_VALUE) failed: 0.1 != 0.2 (tests/failures.c:154)
+Test case Fail.Double failed: EXPECT_EQ(TENTH + TWO_TENTHS, THREE_TENTHS) failed: 0.30000000000000004 != 0.3 (tests/failures.c:162)
+Test case Fail.LongDouble failed: EXPECT_EQ(value, OTHER_LDOUBLE_VALUE) failed: 0.3 != 0.5 (tests/failures.c:172)
+Test case Fail.StopsAtFirstFailure failed: EXPECT_EQ(VALUE, OTHER_VALUE) failed: 1 != 2 (tests/failures.c:182)
+2 out of 15 test cases succeeded!

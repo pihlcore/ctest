@@ -1,0 +1,4 @@
+ctest warning: Test case Dup.Same is defined more than once!
+Test case Dup.Same succeeded!
+1 out of 1 test cases succeeded!
+1 test case(s) could not be registered, see warnings above!
